@@ -1,4 +1,4 @@
-#A basic Bitcoin price app.
+## A basic Bitcoin price app.
 Built in ReactJS.
 
 `npm install`
