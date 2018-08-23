@@ -5,6 +5,9 @@ import { pluckGdaxPrice } from '../utils/coinPrice';
 // Action Types
 import { GET_COIN_PRICE } from '../actionTypes';
 
+// Utils
+import { floor } from '../utils/math';
+
 // Action creators
 export function get(price) {
   return { type: GET_COIN_PRICE, price };
@@ -12,6 +15,6 @@ export function get(price) {
 
 // GET coin data from the coinmarketcap API.
 export const getCoin = (name) => dispatch => getCoinPrices(name).then((res) => {
-  const coinPrice = pluckGdaxPrice(res.data);
+  const coinPrice = floor(pluckGdaxPrice(res.data));
   dispatch(get(coinPrice));
 });

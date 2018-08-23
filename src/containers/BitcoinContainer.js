@@ -46,8 +46,7 @@ class BitcoinContainer extends React.Component {
 
     return (
       <div id="board">
-        Bitcoin
-        {coin.price}
+        Bitcoin {coin.price}
       </div>
     );
   }
