@@ -3,6 +3,6 @@ Built in ReactJS.
 
 `npm install`
 
-`npm start`
+`npm start` | `http://localhost:3000/`
 
 `npm build`
