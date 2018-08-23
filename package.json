@@ -21,7 +21,8 @@
     "name": "bitcoin",
     "engines": {
       "node": "8.11.3"
-    }
+    },
+    "alias": "leongaban.com"
   },
   "jest": {
     "moduleNameMapper": {},

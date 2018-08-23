@@ -1,11 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// Images
+import logo from '../imgs/bitcoin.png';
+
+// Styles
+import './bitcoin.css';
+
 // Actions
 import { getCoin } from '../actions';
 
 // Components
-// import SquareEdit from 'components/Squares/squareEdit';
+import BitcoinWidget from '../components/bitcoinWidget';
 
 class BitcoinContainer extends React.Component {
   constructor(props) {
@@ -21,7 +27,7 @@ class BitcoinContainer extends React.Component {
       this.props.getCoin('BTC');
     }
 
-    // this.handleSearchButton = this.handleSearchButton.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
 
   componentWillReceiveProps({ price }) {
@@ -30,13 +36,9 @@ class BitcoinContainer extends React.Component {
     });
   }
 
-  // handleSearchButton(e, bool = null) {
-  //   if (bool) {
-  //     this.setState({ search: false });
-  //   } else {
-  //     this.setState({ search: !this.state.search });
-  //   }
-  // }
+  refresh() {
+    window.location.reload();
+  }
 
   render() {
     const { coin } = this.state;
@@ -44,9 +46,15 @@ class BitcoinContainer extends React.Component {
     // If no price, return null.
     if (!coin || !coin.price) return null;
 
+    const coinObj = {
+      logo,
+      coin,
+      refresh: this.refresh
+    };
+
     return (
-      <div id="board">
-        Bitcoin {coin.price}
+      <div id="price-container">
+        <BitcoinWidget {...coinObj} />
       </div>
     );
   }

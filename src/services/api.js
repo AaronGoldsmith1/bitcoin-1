@@ -9,11 +9,7 @@ const pricesEnpoint = coinId => `${nomics}${key}&currency=${coinId}`;
 
 export const getCoinPrices = name => axios({
   method: 'GET',
-  url: pricesEnpoint(name),
-  headers: {
-    'Access-Control-Allow-Origin' : '*',
-    'Content-Type': 'application/json'
-  }
+  url: pricesEnpoint(name)
 })
   .catch(err => console.error(err))
   .then(res => res);
